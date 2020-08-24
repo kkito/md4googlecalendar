@@ -19,5 +19,5 @@ chrome.runtime.onInstalled.addListener((details) => {
   });
 });
 
-console.log(`'Allo 'Allo! Event Page2`);
+console.log(`'Allo 'Allo! Event Page4`);
 

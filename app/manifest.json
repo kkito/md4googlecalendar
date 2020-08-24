@@ -14,7 +14,11 @@
       "scripts/background.js"
     ]
   },
-  "permissions": ["declarativeContent"],
+  "permissions": [
+      "tabs","declarativeContent",
+      "alarms", "notifications", "storage",
+      "https://calendar.google.com/caVlendar/*"
+  ],
   "page_action": {
     "default_title": "Drink Water Event",
     "default_popup": "pages/options.html"
@@ -32,7 +36,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://calendar.google.com/calendar/*"
+        "https://calendar.google.com/caVlendar/*"
       ],
       "css": [
         "styles/contentscript.css"
