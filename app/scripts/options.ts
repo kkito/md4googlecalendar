@@ -21,9 +21,18 @@ if (ele) {
     //     return document.body.innerHTML;
     // }
 
+    const execFun = function() {
+      const matches = document.querySelectorAll('div[contenteditable="true"]');
+      if (matches.length === 1) {
+        return matches[0].innerHTML;
+      } else {
+        return '';
+      }
+    };
+
     // //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
     chrome.tabs.executeScript({
-        code: '(function(){return "hello"})()'
+        code: `(${execFun.toString()})()`
     }, (results) => {
         // Here we have just the innerHTML and not DOM structure
         console.log('Popup script:');
