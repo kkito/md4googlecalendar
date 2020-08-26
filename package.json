@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/chrome": "^0.x.x",
     "@types/jquery": "^3.5.1",
+    "@types/showdown": "^1.9.3",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
     "babel-eslint": "^10.x.x",
