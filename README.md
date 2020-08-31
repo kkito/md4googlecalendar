@@ -2,6 +2,18 @@
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
+## TODO
+
+* custom icon
+* style of content div 
+* markdown feature
+  * ~~xxx~~
+  * nexted list 
+  * [x] xxx 
+  * markdown style
+* publish to store
+* options to start show
+
 ## Installation
 
 	$ npm install
