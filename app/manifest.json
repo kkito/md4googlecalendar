@@ -36,15 +36,17 @@
   "content_scripts": [
     {
       "matches": [
-        "https://calendar.google.com/caVlendar/*"
+        "https://calendar.google.com/calendar/*"
       ],
       "css": [
+        "images/github-markdown.css",
         "styles/contentscript.css"
       ],
       "js": [
+        "images/showdown.min.js",
         "scripts/contentscript.js"
       ],
-      "run_at": "document_end",
+      "run_at": "document_start",
       "all_frames": false
     }
   ]
