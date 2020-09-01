@@ -13,6 +13,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   * markdown style
 * publish to store
 * options to start show
+* 回到日历界面的时候markdown的展示还存在
+  * 增加另一个慢速的检测当前是否有input div
 
 ## Installation
 
