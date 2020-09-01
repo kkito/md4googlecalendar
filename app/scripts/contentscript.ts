@@ -60,8 +60,8 @@ class MD4Gcalendar {
       const rect = editor!.getBoundingClientRect();
       div.setAttribute(
         `style`,
-        `position:absolute;top:${rect.top}px;left:${
-          rect.left + rect.width + 80
+        `position:absolute;top:${rect.top - 120 }px;left:${
+          rect.left + rect.width + 20
         }px;`
       );
       div.innerHTML = `not inited!!!!`;

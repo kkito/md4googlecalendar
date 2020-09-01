@@ -1,8 +1,14 @@
 #md4g_markdown {
-  border:1px solid gray;
+  border:1px solid #CCC;
+  background-color: #EEE;
 }
 .markdown-body {
-  padding: 1rem;
-  width: 600px;
-  min-height: 500px;
+  padding: 0.7rem;
+  width: 500px;
+  min-height: 300px;
+}
+
+.markdown-body li > p {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
