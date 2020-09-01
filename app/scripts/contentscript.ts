@@ -8,18 +8,16 @@ class MD4Gcalendar {
   protected calledTimes = 0;
   protected initedMardownDiv = false;
   protected lastMarkdown = ``;
+  protected isUnderEditing = true;
 
   public intervalCall() {
     this.calledTimes++;
-    console.log(`interval called ${this.calledTimes}`);
-    if (this.hasEditorInPage()) {
-      const mdDiv = this.getMardDownDiv();
-      console.log(`inited!!!`);
-      const mdc = this.getMarkdownContent();
-      if (mdc !== this.lastMarkdown) {
-        this.lastMarkdown = mdc;
-        this.updateMarkdown2Html(mdc);
-      }
+    if (!this.initedMardownDiv) {
+      this.getMardDownDiv();
+    }
+    // console.log(`interval called ${this.calledTimes} - ${this.isUnderEditing}`);
+    if (this.isUnderEditing) {
+      this.updateMDContent();
     }
   }
 
@@ -40,6 +38,17 @@ class MD4Gcalendar {
     console.log(markDown);
     console.log(html);
     this.getMardDownDiv()!.innerHTML = html;
+  }
+
+  protected updateMDContent() {
+    if (this.hasEditorInPage()) {
+      const mdDiv = this.getMardDownDiv();
+      const mdc = this.getMarkdownContent();
+      if (mdc !== this.lastMarkdown) {
+        this.lastMarkdown = mdc;
+        this.updateMarkdown2Html(mdc);
+      }
+    }
   }
 
   protected getMarkdownContent() {
@@ -63,6 +72,15 @@ class MD4Gcalendar {
       div.setAttribute(`id`, this.markDownDivId);
       div.setAttribute(`class`, `markdown-body`);
       const editor = this.getOriginEditorEle();
+      editor?.addEventListener('focus', () => {
+        console.log(`set isUnderediging true`);
+        this.isUnderEditing = true;
+      });
+      editor?.addEventListener('blur', () => {
+        console.log(`set isUnderediging false`);
+        this.isUnderEditing = false;
+        this.updateMDContent();
+      });
       const rect = editor!.getBoundingClientRect();
       div.setAttribute(
         `style`,
