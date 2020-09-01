@@ -29,7 +29,13 @@ class MD4Gcalendar {
   }
 
   public updateMarkdown2Html(markDown: string) {
-    const converter = new showdown.Converter(),
+    const converter = new showdown.Converter({
+      strikethrough: true,
+      tasklists: true,
+      simpleLineBreaks: true,
+      tables: true,
+      disableForced4SpacesIndentedSublists: true,
+    }),
       html = converter.makeHtml(markDown);
     console.log(markDown);
     console.log(html);
@@ -39,7 +45,7 @@ class MD4Gcalendar {
   protected getMarkdownContent() {
     const markDown = this.getOriginEditorEle()!.innerHTML;
     const regex = /(<([^>]+)>)/gi;
-    return markDown.replace(regex, '\n').replace(`    `, `\t`);
+    return markDown.replace(regex, '\n');
   }
 
   protected getOriginEditorEle() {
@@ -76,6 +82,6 @@ const md4g = new MD4Gcalendar();
 
 setInterval(() => {
   md4g.intervalCall();
-}, 3000);
+}, 700);
 
 console.log(`'Allo 'Allo! Content script 234`);
