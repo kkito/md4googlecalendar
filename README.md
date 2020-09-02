@@ -1,11 +1,13 @@
-# my new chrome extension
+# md4googlecalendar
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+markdown for google calendar, edit google calendar activity as markdown
+
+a parsed content will visible beside the eidtor
 
 ## TODO
 
-* custom icon
-* style of content div 
+* ~~ custom icon~~
+* ~~style of content div ~~
 * markdown feature
   * ~~xxx~~
   * nexted list 
@@ -13,8 +15,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   * markdown style
 * publish to store
 * options to start show
-* 回到日历界面的时候markdown的展示还存在
-  * 增加另一个慢速的检测当前是否有input div
+* ~~回到日历界面的时候markdown的展示还存在~~
+  * ~~增加另一个慢速的检测当前是否有input div~~
 
 ## Installation
 
