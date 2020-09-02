@@ -13,11 +13,23 @@ class MD4Gcalendar {
   public intervalCall() {
     this.calledTimes++;
     if (!this.initedMardownDiv) {
-      this.getMardDownDiv();
+      if (this.hasEditorInPage()) {
+        this.getMardDownDiv();
+      }
     }
     // console.log(`interval called ${this.calledTimes} - ${this.isUnderEditing}`);
     if (this.isUnderEditing) {
       this.updateMDContent();
+    }
+  }
+
+  public intervalCheckVisible() {
+    if (this.hasEditorInPage()) {
+      this.showMarkDownDiv();
+    } else {
+      if (this.initedMardownDiv) {
+        this.hideMarkDownDiv();
+      }
     }
   }
 
@@ -38,6 +50,16 @@ class MD4Gcalendar {
     console.log(markDown);
     console.log(html);
     this.getMardDownDiv()!.innerHTML = html;
+  }
+
+  protected hideMarkDownDiv() {
+    const div = this.getMardDownDiv();
+    div?.classList.add(`hide`);
+  }
+
+  protected showMarkDownDiv() {
+    const div = this.getMardDownDiv();
+    div?.classList.remove(`hide`);
   }
 
   protected updateMDContent() {
@@ -101,5 +123,9 @@ const md4g = new MD4Gcalendar();
 setInterval(() => {
   md4g.intervalCall();
 }, 700);
+
+setInterval(() => {
+  md4g.intervalCheckVisible();
+}, 3000);
 
 console.log(`'Allo 'Allo! Content script 234`);
